@@ -15,9 +15,10 @@ const Routes = createAppContainer(
     }, {
         tabBarOptions: {
             upperCaseLabel: false,
-            showIcon: true,
+            showIcon: false,
 
             tabStyle: {
+                height: 60,
                 backgroundColor: '#ffce00',
             },
         },
