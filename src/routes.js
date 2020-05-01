@@ -19,7 +19,7 @@ const Routes = createAppContainer(
 
             tabStyle: {
                 height: 60,
-                backgroundColor: '#ffce00',
+                backgroundColor: '#2b2929',
             },
         },
 

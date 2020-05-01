@@ -9,7 +9,7 @@ const NowNavigator = createAppContainer(
     }, {
         defaultNavigationOptions: {
             headerStyle: {
-                backgroundColor: '#161618',         
+                backgroundColor: '#2b2929',         
             },
             headerTitle: 'FilmesMax',
             headerTitleAlign: 'center',
