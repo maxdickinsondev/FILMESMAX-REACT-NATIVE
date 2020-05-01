@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -24,8 +25,19 @@ export default function Home({ navigation }) {
         loadMovies();
     }, []);
 
+    const dispatch = useDispatch();
+
+    function handleRedux(id) {
+        dispatch({
+            type: '@actor/id',
+            id
+        });
+    }
+
     function handleNavigate(id){
         navigation.navigate('Details', { id });
+
+        handleRedux(id);
     }
 
     return (

@@ -1,6 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-export default function Home() {
-    return <Text>Estou na screen coming!</Text>
-}
+import Home from '../../screens/Coming';
+
+const NowNavigator = createAppContainer(
+    createStackNavigator({
+        Home
+    })
+);
+
+export default NowNavigator; 

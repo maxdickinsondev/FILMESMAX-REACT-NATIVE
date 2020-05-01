@@ -1,10 +1,10 @@
 import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 
-import Popular from './components/Popular';
-import Now from './components/Now';
-import Rated from './components/Rated';
-import Coming from './components/Coming';
+import Popular from './stacks/Popular';
+import Now from './stacks/Now';
+import Rated from './stacks/Rated';
+import Coming from './stacks/Coming';
 
 const Routes = createAppContainer(
     createMaterialTopTabNavigator({

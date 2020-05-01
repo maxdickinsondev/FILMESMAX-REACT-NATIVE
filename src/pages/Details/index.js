@@ -7,6 +7,8 @@ import { MovieBackground, MovieInfo, MovieImage, MovieDetails,
     DurationInfo, Duration
 } from './styles';
 
+import Actors from '../../components/Actors';
+
 import api from '../../services/api';
 
 export default function Details({ navigation }) {
@@ -53,6 +55,8 @@ export default function Details({ navigation }) {
                     </MovieNumbers>
                 </MovieDetails>                
             </MovieInfo>
+
+            <Actors />
         </MovieBackground>
     );
 }
