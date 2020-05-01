@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar, Text } from 'react-native';
+import { StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import api from '../../services/api';
 import bg from '../../assets/images/bg.jpg';
 
 import { Container, Background, Form, Input, Button,
-    List, MovieInfo, ImageMovie, TitleMovie
+    List, MovieInfo, ImageMovie, TitleArea, TitleMovie,
+    Link
 } from './styles';
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [movie, setMovie] = useState([]);
     const url = 'https://image.tmdb.org/t/p/w185';
 
@@ -22,6 +23,10 @@ export default function Home() {
 
         loadMovies();
     }, []);
+
+    function handleNavigate(id){
+        navigation.navigate('Details', { id });
+    }
 
     return (
         <Background source={bg}>
@@ -43,14 +48,20 @@ export default function Home() {
 
             <List 
                 data={movie}
+                keyExtractor={movie => String(movie.id)}
                 renderItem={({ item }) => (
-                    <MovieInfo>
-                        <ImageMovie 
-                            source={{ uri: url+item.poster_path }}
-                        />
+                    <Link onPress={() => handleNavigate(item.id)} underlayColor="transparent" >
+                        <MovieInfo>
+                            <ImageMovie 
+                                resizeMode="contain"
+                                source={{ uri: url+item.poster_path }}
+                            />
 
-                        <TitleMovie> {item.title} </TitleMovie>
-                    </MovieInfo>
+                            <TitleArea>
+                                <TitleMovie> {item.title} </TitleMovie>
+                            </TitleArea>
+                        </MovieInfo>
+                    </Link>
                 )}
             />
         </Background>

@@ -37,23 +37,31 @@ export const List = styled.FlatList`
     margin-top: 20px;
 `;
 
+export const Link = styled.TouchableHighlight`
+
+`;
+
 export const MovieInfo = styled.View`
     align-items: center;
 `;
 
+export const TitleArea = styled.View`
+    align-items: center;
+    justify-content: center;
+    background: #2B2929;
+    width: 180px;
+    height: 45px;
+    margin-bottom: 40px;
+`;
+
 export const ImageMovie = styled.Image`
-    width: 240px;
+    width: 200px;
     height: 270px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 `;
 
 export const TitleMovie = styled.Text`
-    align-items: center;
     color: #999;
     font-size: 14px;
-    margin-bottom: 40px;
-    background: #000;
-    height: 40px;
-    width: 242px;
 `;
