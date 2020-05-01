@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MovieBackground = styled.ImageBackground`
     flex: 1;
-    opacity: 0.7;
+    opacity: 0.9;
 `;
 
 export const MovieInfo = styled.View`
@@ -17,8 +17,9 @@ export const MovieImage = styled.Image`
 `;
 
 export const MovieDetails = styled.View`
-    background: rgba(0, 0, 0, 0.2);
+    background: #2b2b28;
     max-width: 180px;
+    min-width: 180px;
 `;
 
 export const Title = styled.Text`

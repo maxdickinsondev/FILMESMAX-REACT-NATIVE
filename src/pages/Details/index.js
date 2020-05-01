@@ -32,7 +32,7 @@ export default function Details({ navigation }) {
         <MovieBackground source={{ uri: url+details.poster_path }}>
             <MovieInfo>
                 <MovieImage 
-                    source={{ uri: 'https://image.tmdb.org/t/p/w300/8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg' }}
+                    source={{ uri: url+details.poster_path }}
                     resizeMode="stretch"
                 />
 
