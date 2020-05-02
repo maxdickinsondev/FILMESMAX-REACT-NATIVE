@@ -4,8 +4,9 @@ export const Container = styled.View`
     background: #2b2b28;
     margin-left: 20px;
     margin-right: 25px;
-    max-height: 160px;
-    min-height: 160px;
+    margin-top: 10px;
+    max-height: 200px;
+    min-height: 200px;
 `;
 
 export const Name = styled.Text`
@@ -20,14 +21,15 @@ export const List = styled.FlatList`
 `;
 
 export const ActorInfo = styled.View`
-    margin-top: 10px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 10px;
+    margin: 8px;
 `;
 
 export const ActorImage = styled.Image`
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 100px;
     
 `;
 
@@ -35,11 +37,12 @@ export const ActorName = styled.Text.attrs({
     numberOfLines: 2
 })`
     color: #fff;
-    max-width: 50px;
+    max-width: 80px;
 `;
 
 export const FalseName = styled.Text.attrs({
     numberOfLines: 1
 })`
     color: #ffce00;
+    max-width: 90px;
 `;

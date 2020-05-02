@@ -2,18 +2,24 @@ import React, { useState ,useEffect } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Clock from 'react-native-vector-icons/AntDesign';
 
-import { MovieBackground, MovieInfo, MovieImage, MovieDetails, 
+import { Container, MovieBackground, MovieInfo, MovieImage, MovieDetails, 
     Title, Description, Generes, MovieNumbers, DateInfo, Date, 
-    DurationInfo, Duration
+    DurationInfo, Duration, OthersInfo
 } from './styles';
 
 import Actors from '../../components/Actors';
 
 import api from '../../services/api';
+import Recommendations from '../../components/Recommendations';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default function Details({ navigation }) {
     const [details, setDetails] = useState([]);
     const url = 'https://image.tmdb.org/t/p/w300';
+
+    const scroll = [
+        {},
+    ];
 
     useEffect(() => {
         async function loadDetails() {
@@ -30,33 +36,43 @@ export default function Details({ navigation }) {
 
     return (
         <MovieBackground source={{ uri: url+details.poster_path }}>
-            <MovieInfo>
-                <MovieImage 
-                    source={{ uri: url+details.poster_path }}
-                    resizeMode="stretch"
-                />
+            <FlatList 
+                data={scroll}
+                renderItem={() => (
+                    <Container>
+                        <MovieInfo>
+                            <MovieImage 
+                                source={{ uri: url+details.poster_path }}
+                                resizeMode="stretch"
+                            />
 
-                <MovieDetails>
-                    <Title> {details.original_title} </Title>
-                    <Description> {details.overview} </Description>
-                    <Generes>Action, Science Fiction</Generes>
+                            <MovieDetails>
+                                <Title> {details.original_title} </Title>
+                                <Description> {details.overview} </Description>
+                                <Generes>Action, Science Fiction</Generes>
 
-                    <MovieNumbers>
-                        <DateInfo>
-                            <Icon name="calendar" color="#ffce00" />
-                            <Date>{details.release_date}</Date>
-                        </DateInfo>
+                                <MovieNumbers>
+                                    <DateInfo>
+                                        <Icon name="calendar" color="#ffce00" />
+                                        <Date>{details.release_date}</Date>
+                                    </DateInfo>
 
-                        <DurationInfo>
-                            <Clock name="clockcircle" color="#ffce00" />
-                            <Duration> {details.runtime} min </Duration>
-                        </DurationInfo>
-                        
-                    </MovieNumbers>
-                </MovieDetails>                
-            </MovieInfo>
+                                    <DurationInfo>
+                                        <Clock name="clockcircle" color="#ffce00" />
+                                        <Duration> {details.runtime} min </Duration>
+                                    </DurationInfo>
+                                    
+                                </MovieNumbers>
+                            </MovieDetails>   
+                        </MovieInfo>
 
-            <Actors />
+                        <OthersInfo>
+                            <Actors />
+                            <Recommendations />
+                        </OthersInfo>
+                    </Container>
+                )}
+            />
         </MovieBackground>
     );
 }

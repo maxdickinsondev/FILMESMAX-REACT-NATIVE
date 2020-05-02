@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const Container = styled.View`
+
+`;
+
 export const MovieBackground = styled.ImageBackground`
     flex: 1;
     opacity: 0.9;
@@ -20,9 +24,13 @@ export const MovieDetails = styled.View`
     background: #2b2b28;
     max-width: 180px;
     min-width: 180px;
+    max-height: 250px;
+    min-height: 245px;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text.attrs({
+    numberOfLines: 1
+})`
     color: #ffce00;
     font-weight: bold;
     font-size: 18px;
@@ -72,4 +80,6 @@ export const DurationInfo = styled.View`
 export const Duration = styled.Text`
     color: #fff;
 `;
+
+export const OthersInfo = styled.View``;
 
