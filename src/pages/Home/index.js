@@ -7,12 +7,12 @@ import api from '../../services/api';
 import bg from '../../assets/images/bg.jpg';
 
 import { Container, Background, Form, Input, Button,
-    List, MovieInfo, ImageMovie, TitleArea, TitleMovie,
-    Link
+    List, MovieInfo, ImageMovie, Link
 } from './styles';
 
 export default function Home({ navigation }) {
     const [movie, setMovie] = useState([]);
+
     const url = 'https://image.tmdb.org/t/p/w185';
 
     useEffect(() => {
@@ -61,6 +61,7 @@ export default function Home({ navigation }) {
             <List 
                 data={movie}
                 keyExtractor={item => String(item.id)}
+                numColumns={3}
                 renderItem={({ item }) => (
                     <Link onPress={() => handleNavigate(item.id)} underlayColor="transparent" >
                         <MovieInfo>
@@ -68,10 +69,6 @@ export default function Home({ navigation }) {
                                 resizeMode="contain"
                                 source={{ uri: url+item.poster_path }}
                             />
-
-                            <TitleArea>
-                                <TitleMovie> {item.title} </TitleMovie>
-                            </TitleArea>
                         </MovieInfo>
                     </Link>
                 )}

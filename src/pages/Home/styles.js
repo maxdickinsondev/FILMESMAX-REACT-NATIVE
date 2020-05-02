@@ -6,8 +6,6 @@ export const Background = styled.ImageBackground`
 
 export const Container = styled.View`
     padding: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
 `;
 
 export const Form = styled.View`
@@ -43,25 +41,13 @@ export const Link = styled.TouchableHighlight`
 
 export const MovieInfo = styled.View`
     align-items: center;
-`;
-
-export const TitleArea = styled.View`
-    align-items: center;
     justify-content: center;
-    background: #2B2929;
-    width: 180px;
-    height: 45px;
-    margin-bottom: 40px;
+    margin: 5px 10px;
 `;
 
 export const ImageMovie = styled.Image`
-    width: 200px;
-    height: 270px;
+    width: 100px;
+    height: 170px;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-`;
-
-export const TitleMovie = styled.Text`
-    color: #999;
-    font-size: 14px;
 `;

@@ -83,3 +83,10 @@ export const Duration = styled.Text`
 
 export const OthersInfo = styled.View``;
 
+export const Loading = styled.View`
+    flex: 1;
+    background: #2b2b28;
+    align-items: center;
+    justify-content: center;
+`;
+
