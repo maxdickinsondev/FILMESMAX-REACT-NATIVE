@@ -60,7 +60,7 @@ export default function Home({ navigation }) {
 
             <List 
                 data={movie}
-                keyExtractor={movie => String(movie.id)}
+                keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => (
                     <Link onPress={() => handleNavigate(item.id)} underlayColor="transparent" >
                         <MovieInfo>

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { Container, Title, List, MovieInfo, MovieImage } from './styles';
+import { Container, Title, List, MovieInfo, 
+    MovieImage, Link
+} from './styles';
 
 import api from '../../services/api';
 
-export default function Recommendations() {
+export default function Recommendations({ navigation }) {
     const [recommendation, setRecommendation] = useState([]);
     const movieID = useSelector(state => state.actors);
     const url = 'https://image.tmdb.org/t/p/w185';
@@ -18,7 +20,24 @@ export default function Recommendations() {
         }
 
         loadRecommendations();
-    }, []);
+    }, [movieID]);
+
+    const dispatch = useDispatch();
+
+    function handleRedux(id) {
+        dispatch({
+            type: '@actor/id',
+            id
+        });
+    }
+
+    function handleNavigate(id) {
+        console.log(id);
+
+        handleRedux(id);
+
+        navigation.navigate('Details', { id });
+    }
 
 
     return (
@@ -28,11 +47,14 @@ export default function Recommendations() {
             <List 
                 data={recommendation}
                 horizontal={true}
+                keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => (
                     <MovieInfo>
-                        <MovieImage 
-                            source={{ uri: url+item.poster_path }}
-                        />
+                        <Link onPress={() => handleNavigate(item.id)}>
+                            <MovieImage 
+                                source={{ uri: url+item.poster_path }}
+                            />
+                        </Link>
                     </MovieInfo>
                 )}
             />

@@ -5,6 +5,7 @@ export const Container = styled.View`
     margin-left: 20px;
     margin-right: 25px;
     margin-top: 10px;
+    margin-bottom: 20px;
     max-height: 180px;
     min-height: 180px;
 `;
@@ -27,4 +28,8 @@ export const MovieInfo = styled.View`
 export const MovieImage = styled.Image`
     width: 75px;
     height: 125px;
+`;
+
+export const Link = styled.TouchableHighlight`
+
 `;

@@ -1,4 +1,5 @@
 import React, { useState ,useEffect } from 'react';
+import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Clock from 'react-native-vector-icons/AntDesign';
 
@@ -8,10 +9,9 @@ import { Container, MovieBackground, MovieInfo, MovieImage, MovieDetails,
 } from './styles';
 
 import Actors from '../../components/Actors';
+import Recommendations from '../../components/Recommendations';
 
 import api from '../../services/api';
-import Recommendations from '../../components/Recommendations';
-import { FlatList } from 'react-native-gesture-handler';
 
 export default function Details({ navigation }) {
     const [details, setDetails] = useState([]);
@@ -32,12 +32,13 @@ export default function Details({ navigation }) {
         }
 
         loadDetails();
-    }, []);
+    }, [details]);
 
     return (
         <MovieBackground source={{ uri: url+details.poster_path }}>
             <FlatList 
                 data={scroll}
+                keyExtractor={item => String(item.id)}
                 renderItem={() => (
                     <Container>
                         <MovieInfo>
@@ -67,8 +68,8 @@ export default function Details({ navigation }) {
                         </MovieInfo>
 
                         <OthersInfo>
-                            <Actors />
-                            <Recommendations />
+                            <Actors navigation={navigation} />
+                            <Recommendations navigation={navigation} />
                         </OthersInfo>
                     </Container>
                 )}

@@ -21,7 +21,7 @@ export default function Actors() {
         }
 
         loadActors();
-    }, []);
+    }, [actors]);
 
     return (
         <Container>
@@ -30,6 +30,7 @@ export default function Actors() {
             <List 
                 data={actors}
                 horizontal={true}
+                keyExtractor={item => String(item.id)}
                 renderItem={({ item }) => (
                     <ActorInfo>
                         <ActorImage source={{ uri: url+item.profile_path }} />
