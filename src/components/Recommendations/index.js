@@ -32,8 +32,6 @@ export default function Recommendations({ navigation }) {
     }
 
     function handleNavigate(id) {
-        console.log(id);
-
         handleRedux(id);
 
         navigation.navigate('Details', { id });
