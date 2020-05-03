@@ -21,6 +21,8 @@ const Routes = createAppContainer(
                 height: 60,
                 backgroundColor: '#2b2929',
             },
+
+            activeTintColor: '#ffce00',
         },
 
         tabBarPosition: 'bottom'

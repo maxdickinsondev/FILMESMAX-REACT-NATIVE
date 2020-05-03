@@ -5,7 +5,7 @@ import { StatusBar, ActivityIndicator } from 'react-native';
 import api from '../../services/api';
 import bg from '../../assets/images/bg.jpg';
 
-import { Container, Background, Form, Input, Button,
+import { Container, Background, Form, Input,
     List, MovieInfo, ImageMovie, Link, Loading
 } from './styles';
 
@@ -56,7 +56,6 @@ export default function Home({ navigation }) {
 
     function handleInput(e) {
         setInput(e); 
-        console.log(e);
     }
 
     if (loading) {

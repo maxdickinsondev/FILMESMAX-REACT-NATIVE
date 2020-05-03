@@ -7,6 +7,18 @@ import Home from '../../screens/Coming';
 const NowNavigator = createAppContainer(
     createStackNavigator({
         Home
+    }, {
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: '#2b2929'
+            },
+            headerTitle: 'FilmesMax',
+            headerTitleAlign: 'center',
+            headerTintColor: '#ffce00',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
+        }
     })
 );
 

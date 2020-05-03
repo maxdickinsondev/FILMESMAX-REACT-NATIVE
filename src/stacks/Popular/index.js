@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Home from '../../pages/Home';
 import Details from '../../pages/Details';
 
-const NowNavigator = createAppContainer(
+const PopularNavigator = createAppContainer(
     createStackNavigator({
         Home,
         Details
@@ -23,4 +23,4 @@ const NowNavigator = createAppContainer(
     })
 );
 
-export default NowNavigator; 
+export default PopularNavigator; 
