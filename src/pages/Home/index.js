@@ -9,25 +9,28 @@ import { Container, Background, Form, Input,
     List, MovieInfo, ImageMovie, Link, Loading
 } from './styles';
 
+console.disableYellowBox = true;
+
 export default function Home({ navigation }) {
     const [movie, setMovie] = useState([]);
     const [loading, setLoading] = useState(false);
     const [input, setInput] = useState('');
+    const [page, setPage] = useState(1); 
 
     const url = 'https://image.tmdb.org/t/p/w185';
 
+    async function loadMovies() {
+        setLoading(true);
+
+        const response = await api.get(`/movie/popular?api_key=14ff7d5e5b5ac073419275359d9759a0&language=pt-BR&page=${page}`);
+
+        setMovie(response.data.results);
+        setLoading(false);
+    }
+
     useEffect(() => {
-        async function loadMovies() {
-            setLoading(true);
-
-            const response = await api.get('/movie/popular?api_key=14ff7d5e5b5ac073419275359d9759a0&language=pt-BR');
-
-            setMovie(response.data.results);
-            setLoading(false);
-        }
-
         loadMovies();
-    }, [input == '']);
+    }, [page || input == '']);
 
     useEffect(() => {
         async function loadMovies() {
@@ -55,7 +58,12 @@ export default function Home({ navigation }) {
     }
 
     function handleInput(e) {
-        setInput(e); 
+        setInput(e);
+    }
+
+    function handlePage() {
+        setPage(page + 1);
+        console.log(page);
     }
 
     if (loading) {
@@ -85,6 +93,8 @@ export default function Home({ navigation }) {
                 <List 
                     data={movie}
                     keyExtractor={item => String(item.id)}
+                    onEndReached={handlePage}
+                    onEndReachedThreshold={0.1}
                     numColumns={3}
                     renderItem={({ item }) => (
                         <Link onPress={() => handleNavigate(item.id)} underlayColor="transparent" >
