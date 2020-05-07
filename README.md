@@ -16,4 +16,4 @@
 - Expo
 - API do TheMovieDB
 
-ASSISTA O VÍDEO NO YOUTUBE: https://youtu.be/3DBv2uu3MV8
+ASSISTA O VÍDEO NO YOUTUBE: https://youtu.be/4qnxnJfkfKs
